@@ -10,11 +10,12 @@ import { useContext } from "react";
 function App() {
 
   const {isAuth} = useContext(AuthContext);
+
   return <div className="App">
     < Navbar />
     <BrowserRouter>
     <Routes>
-        <Route path="/" element={isAuth ? <Login/> : <Home />}></Route>
+        <Route path="/" element={isAuth ? <Home/> : <Login />}></Route>
         <Route path="/login" element={<Login />}></Route>
     </Routes> 
     </BrowserRouter>

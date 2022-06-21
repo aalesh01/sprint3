@@ -1,7 +1,15 @@
 import React from "react";
+import { CartContext } from "../context/CartContext";
 
 const ProductItem = () => {
-  return <div>{/* CODE HERE */}</div>;
+  
+  const { cartCount } = React.useContext(CartContext);
+
+  
+  
+  return <div>
+    <h2>Items in Cart: {cartCount}</h2>
+    </div>;
 };
 
 export default ProductItem;

@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import ProductItem from "./ProductItem";
 
 const Navbar = () => {
 
-  const {isAuth} = useContext(AuthContext);
+  const {isAuth,toggleAuth} = useContext(AuthContext);
 
   return (
     <div>
       <BrowserRouter>
-        <h1><Link to={isAuth ? "/" : "/login" }>Home</Link></h1>
-        <h1><Link to="/">Logout</Link></h1>
+        <Link to={isAuth ? "/" : "/login" }>Home</Link>
+        {isAuth ? <ProductItem/>: "" }
+        <Link onClick={toggleAuth} to="/">{isAuth ? "Logout" : "Login"}</Link>
       </BrowserRouter>
     </div>
   );
